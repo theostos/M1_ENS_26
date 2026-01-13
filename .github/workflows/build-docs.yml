@@ -2,6 +2,10 @@ name: Build Lean documentation
 
 on:
   workflow_dispatch:
+    inputs:
+      confirm:
+        description: "Type YES to rebuild Lean documentation"
+        required: true
 
 permissions:
   contents: write
@@ -11,10 +15,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Confirm rebuild
+        run: |
+          if [ "${{ github.event.inputs.confirm }}" != "YES" ]; then
+            echo "Confirmation failed. Type YES to proceed."
+            exit 1
+          fi
+
       - uses: actions/checkout@v4
 
-      - name: Install Lean toolchain
-        uses: leanprover/lean4-action@v1
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
 
       - name: Build Lean docs
         run: |
