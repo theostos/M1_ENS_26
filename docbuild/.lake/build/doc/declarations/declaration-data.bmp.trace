@@ -1,0 +1,18 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs": null,
+ "log":
+ [{"message": "Documentation indexing", "level": "info"},
+  {"message":
+   ".> /home/runner/work/M1_ENS_26/M1_ENS_26/.lake/packages/doc-gen4/.lake/build/bin/doc-gen4 index --build /home/runner/work/M1_ENS_26/M1_ENS_26/docbuild/.lake/build",
+   "level": "trace"}],
+ "inputs":
+ [["/home/runner/work/M1_ENS_26/M1_ENS_26/.lake/packages/doc-gen4/.lake/build/bin/doc-gen4",
+   "aecbeac3e0b55b70"],
+  ["<nil>", "7b9f5ff346c3f45f"],
+  ["<collection>",
+   [["/home/runner/work/M1_ENS_26/M1_ENS_26/docbuild/.lake/build/doc/M1ENS26/Basic.html",
+     "32948f7924cf4fc9"],
+    ["/home/runner/work/M1_ENS_26/M1_ENS_26/docbuild/.lake/build/doc/M1ENS26.html",
+     "611d855dda0fc05d"]]]],
+ "depHash": "9da7147d610928a8"}
