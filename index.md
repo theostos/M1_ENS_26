@@ -28,18 +28,29 @@ Les cours ont lieu de 13h30 à 16h30  selon le calendrier suivant:
 | 14 avril | séminaire étudiants | |
 
 
-# Matériel
-Il n'y a pas (encore) beaucoup de livres qui parlent de `Lean` et les deux références canoniques sont
-* [Theorem Proving in Lean 4](https://leanprover.github.io/theorem_proving_in_lean4/), par J. Avigad, L. de Moura, S. Kong et S. Ullrich
-* [Mathematics in Lean](https://leanprover-community.github.io/mathematics_in_lean/), par J. Avigad et P. Massot
+# Références 
 
-Le très beau
-* [Mathematical Components](https://math-comp.github.io/mcb/), par A. Mahboubi et E. Tassi
-
-est conçu pour l'assistant de preuve `Rocq` mais c'est une excellent présentation à ce qu'est la formalisation mathématique en général.
+Il n'y a pas (encore) beaucoup de livres qui parlent de `Lean`, mais le très beau
+* [Mathematical Components](https://math-comp.github.io/mcb/), par A. Mahboubi et E. Tassi, bien que conçu pour l'assistant de preuve [`Rocq`](https://rocq-prover.org/), est une excellente présentation à ce qu'est la formalisation mathématique en général.
 
 Pour tout ce qui concerne la "théorie des types" qu'on utilise, une jolie introduction est dans le premier chapitre "Type theory" de
 * [Homotopy Type Theory (a.k.a. "HoTT book")](https://homotopytypetheory.org/book/)
 
 Une source plus complète, très bien écrite et fort agréable à lire est
 * [Lectures on the Curry–Howard Isomorphism](https://www.sciencedirect.com/bookseries/studies-in-logic-and-the-foundations-of-mathematics/vol/149/suppl/C), par M. H. Sørensen et P. Urzyczyn.
+
+ Les deux références sont
+* [Theorem Proving in Lean 4](https://leanprover.github.io/theorem_proving_in_lean4/), par J. Avigad, L. de Moura, S. Kong et S. Ullrich
+* [Mathematics in Lean](https://leanprover-community.github.io/mathematics_in_lean/), par J. Avigad et P. Massot
+contiennent aussi beaucoup de matériel pertinent pour notre cours.
+
+# Prérequis Lean et GitHub
+
+Avant le début du cours (le mardi 3 février 2026), assurez-vous de:
+* avoir accès à une connexion internet lorsque à l'ENS, idéalement via Eduroam;
+* avoir configuré une installation `git`: si vous avez besoin d'aide, vous pouvez vous référer par exemple à la page <a href="https://www.imo.universite-paris-saclay.fr/~patrick.massot/misc/git.html">maintenue par Patrick Massot</a>;
+* avoir créé un compte <a href="https://github.com">GitHub</a> pour pouvoir soumettre votre travail;
+* installer Lean sur votre ordinateur, en suivant les [instructions officielles](https://lean-lang.org/install/): si vous rencontrez des difficultés, on en parlera lors du premier cours;
+* d'avoir téléchargé (via `git clone`) le *repository* du cours à l'adresse https://github.com/faenuccio-teaching/ENS_26.git.
+
+Autres informations et détails sont disponibles sur la [page officielle](https://faenuccio-teaching.github.io/ENS_26/) du cours.
