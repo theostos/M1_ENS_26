@@ -201,18 +201,42 @@ An equivalence can be either *proved* or *used*. This amounts to saying that
 `⌘`
 
 ### Structures
-Among inductive types (*i. e.* all types...), some are remarkably useful for formalising mathematical objects: *structures*. Typically, they are used to *bundle* objects and properties together.
+
++++ Why did `#print Iff` begun with `structure` rather than with `inductive`?
+Because it is a *structure* (with two fields):
+
+> **Definition**
+    A structure is an inductive type with a unique constructor.
++++
+
+Indeed, among inductive types (*i. e.* all types...), some are remarkably useful for formalising mathematical objects: those that *bundle* objects and properties together. So, we give them a different name.
 
 As an example, let's see what a Monoid is:
 ```
-structure (α : Type*) Monoid where
-...
-...
+structure (M : Type*) Monoid where
+    | mul : M → M → M                        -- denoted *
+    | one : M                                -- denoted 1
+    | mul_assoc (a b c : M) : a * b * c = a * (b * c)
+    | one_mul (a : M) : 1 * a = a
+    | mul_one (a : M) : 1 * 1 = a
 ```
+* Two of these fields are terms in types of kind `Type *`
+* Three of them are terms in types of kind `Prop`
+* We often call structures whose constructor fields are both in `Type *` and in `Prop` a *mixin*.
 
-> **Definition**
->> A structure is an inductive type with a unique constructor.
+So, 
+* a *monoid structure* on `M` is a collection `⟨*, 1, mul_assoc, one_mul, mul_one⟩`
+* a term of a monoid is just a term of it! The monoid is a type, so it comes with its terms even if it has more structure, which is encoded in a term `str : Monoid M`.
 
-* We've already encountered some structures: both `∧` and `↔` are structures, whereas... why is
-a structure all constructors of which are `Prop`-valued, itself in `Prop`?
+Another extremely useful structure is the equivalence (thought of as an isomorphism):
+```
+structure (α β : Type*) : Equiv α β where
+    | toFun : α → β
+    | invFun : β → α
+    | left_inv : LeftInverse self.invFun self.toFun 
+    | right_inv : RightInverse self.invFun self.toFun
+
+infixl:25 " ≃ " => Equiv
+```
+`⌘`
 

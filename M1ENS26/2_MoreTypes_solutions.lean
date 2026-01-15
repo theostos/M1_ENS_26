@@ -161,7 +161,20 @@ open ENS_Nat
 #print ENS_Nat
 #check ENS_Nat
 
--- We want to prove that `ENS_Nat = ℕ`: they are *constructed* in the same way!
+def ENS_Nat_add : ENS_Nat → ENS_Nat → ENS_Nat := fun n m ↦ match n, m with
+  | ENS_zero, m => m
+  | ENS_succ n, m => ENS_succ (ENS_Nat_add n m)
+
+-- A structure containing simply a `0` and `+`:
+#print AddZero
+
+example : (AddZero ENS_Nat) where
+  add := ENS_Nat_add
+  zero := ENS_zero
+
+-- We want to prove that `ENS_Nat = ℕ`: after all they are *constructed* in the same way!
+#print Equiv
+
 def JustOne_fun : ℕ → ENS_Nat
   | 0 => ENS_zero
   | Nat.succ m => ENS_succ (JustOne_fun m)
@@ -172,6 +185,7 @@ def JustOne_inv : ENS_Nat → ℕ
   | ENS_succ a => Nat.succ (JustOne_inv a)
 
 -- The rest of the equivalence is left as an *exercise*.
+
 
 end Structures
 
@@ -301,6 +315,15 @@ example (a : Politics) : a ≠ Right → a = Left := by
 
 -- **Exercise**
 -- Can you write down on paper, without using VSCode, the type of `Iff.rec`?
+
+-- **Exercise**
+-- Do you understand why the first of the next two lines compiles while the second
+-- throws an error?
+example (M : Type*) (α : Monoid M) : (1 : M) = (1 : M) := rfl
+example (α : Type*) (M : Monoid α) : (1 : M) = (1 : M) := rfl
+
+
+
 /- **§ Some exercises** -/
 
 
