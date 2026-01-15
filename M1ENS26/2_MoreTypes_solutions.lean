@@ -147,6 +147,19 @@ example (n : ℕ) : ENS_Or (n = 0) (∃ m, n = Nat.succ m) := by
 #print Equiv
 #print Iff -- printed ↔
 
+example : P ∧ (Q ∨ S) ↔ P ∧ Q ∨ P ∧ S := by
+  constructor
+  · rintro ⟨hP, hQ | hS⟩
+    · left
+      exact ⟨hP, hQ⟩
+    · right
+      exact ⟨hP, hS⟩
+  · rintro (⟨hP, hQ⟩ | ⟨hP, hS⟩)
+    · refine ⟨hP, ?_⟩
+      left
+      exact hQ
+    · exact ⟨hP, Or.inr hS⟩
+
 -- `⌘`
 
 end InductiveTypes
@@ -161,7 +174,20 @@ open ENS_Nat
 #print ENS_Nat
 #check ENS_Nat
 
--- We want to prove that `ENS_Nat = ℕ`: they are *constructed* in the same way!
+def ENS_Nat_add : ENS_Nat → ENS_Nat → ENS_Nat := fun n m ↦ match n, m with
+  | ENS_zero, m => m
+  | ENS_succ n, m => ENS_succ (ENS_Nat_add n m)
+
+-- A structure containing simply a `0` and `+`:
+#print AddZero
+
+example : (AddZero ENS_Nat) where
+  add := ENS_Nat_add
+  zero := ENS_zero
+
+-- We want to prove that `ENS_Nat = ℕ`: after all they are *constructed* in the same way!
+#print Equiv
+
 def JustOne_fun : ℕ → ENS_Nat
   | 0 => ENS_zero
   | Nat.succ m => ENS_succ (JustOne_fun m)
@@ -172,6 +198,7 @@ def JustOne_inv : ENS_Nat → ℕ
   | ENS_succ a => Nat.succ (JustOne_inv a)
 
 -- The rest of the equivalence is left as an *exercise*.
+
 
 end Structures
 
@@ -301,6 +328,40 @@ example (a : Politics) : a ≠ Right → a = Left := by
 
 -- **Exercise**
 -- Can you write down on paper, without using VSCode, the type of `Iff.rec`?
+
+-- **Exercise**
+-- Do you understand why the first of the next two lines compiles while the second
+-- throws an error?
+example (M : Type*) (α : Monoid M) : (1 : M) = (1 : M) := rfl
+example (α : Type*) (M : Monoid α) : (1 : M) = (1 : M) := rfl
+
+-- associativity of `∨`
+-- **Exercise**
+example : (P ∨ Q) ∨ R ↔ P ∨ Q ∨ R := by
+  constructor
+  · intro h
+    rcases h with h1 | h2
+    · rcases h1 with h11 | h12
+      · left
+        exact h11
+      · right
+        left
+        exact h12
+    · right
+      right
+      exact h2
+  · intro h
+    rcases h with h1 | h2
+    · left
+      left
+      exact h1
+    · rcases h2 with h21 | h22
+      · left
+        right
+        exact h21
+      · right
+        exact h22
+
 /- **§ Some exercises** -/
 
 

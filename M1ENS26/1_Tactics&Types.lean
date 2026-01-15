@@ -200,11 +200,6 @@ example : (P ∧ Q → R) → P → Q → R := by
 example : Q → P ∨ Q := by
   sorry
 
--- associativity of `∨`
--- **Exercise**
-example : (P ∨ Q) ∨ R ↔ P ∨ Q ∨ R := by
-  sorry
-
 -- **Exercise**
 example : (P → R) → (Q → S) → P ∨ Q → R ∨ S := by
   sorry

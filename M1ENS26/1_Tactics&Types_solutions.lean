@@ -261,34 +261,6 @@ example : Q → P ∨ Q := by
   right
   exact hQ
 
--- associativity of `∨`
--- **Exercise**
-example : (P ∨ Q) ∨ R ↔ P ∨ Q ∨ R := by
-  constructor
-  · intro h
-    rcases h with h1 | h2
-    · rcases h1 with h11 | h12
-      · left
-        exact h11
-      · right
-        left
-        exact h12
-    · right
-      right
-      exact h2
-  · intro h
-    rcases h with h1 | h2
-    · left
-      left
-      exact h1
-    · rcases h2 with h21 | h22
-      · left
-        right
-        exact h21
-      · right
-        exact h22
-
-
 -- **Exercise**
 example : (P → R) → (Q → S) → P ∨ Q → R ∨ S := by
   intro h1 h2 h3
