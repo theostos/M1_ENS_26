@@ -120,8 +120,6 @@ def Cat : NiceType := Tom
 
 def Hunt : NiceType := g 2 Cat Jerry
 
--- `⌘`
-
 -- ## Another example
 
 inductive ENS_Or (p q : Prop) : Prop
@@ -139,13 +137,21 @@ example (n : ℕ) : ENS_Or (n = 0) (∃ m, n = Nat.succ m) := by
 
 -- `⌘`
 
+-- ## Many more examples
+
 #print True
 #print False
 #print Bool
 #print Nat
 #print And
-#print Iff -- printed ↔
 #print Equiv
+#print Iff -- printed ↔
+
+-- `⌘`
+
+end InductiveTypes
+
+section Structures
 
 inductive ENS_Nat
 | ENS_zero : ENS_Nat
@@ -167,7 +173,7 @@ def JustOne_inv : ENS_Nat → ℕ
 
 -- The rest of the equivalence is left as an *exercise*.
 
-end InductiveTypes
+end Structures
 
 
 -- # Exercises
@@ -202,6 +208,10 @@ section Exercise
 -- *5.* No, it is false: among all types in `Type 2` there is the empty type, for which it is
 -- impossible to find two different 2-dimensional vectors.
 -- *6.* `F` is of type `ℕ ↦ Prop`, of level `Type 0`.
+
+-- **Exercise**
+-- Why is `¬ P : Prop` when `P : Prop`?
+-- Both `P : Prop` and `False : Prop`, so `P → False : Prop`.
 
 -- **Exercise**
 example : True → True := by
@@ -289,6 +299,8 @@ example (a : Politics) : a ≠ Right → a = Left := by
     trivial
   · rfl
 
+-- **Exercise**
+-- Can you write down on paper, without using VSCode, the type of `Iff.rec`?
 /- **§ Some exercises** -/
 
 

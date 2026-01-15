@@ -118,13 +118,13 @@ Once more,
 +++
 
 +++ `¬` and Proofs by contradiction
-* The *definition* of `¬ P` is
+* Given `P : Prop`, the *definition* of `¬ P` is
 
     P → `False`
 
-* The `exfalso` tactic changes *any* goal to proving `False` (useful if you have an assumption ` ... → False`).
+* The `exfalso` tactic changes *any* goal to proving `False` (useful if you have an *assumption* ` ... → False`).
 
-* Proofs by contradiction, introduced using the `by_contra` tactic, require you to prove `False` assuming `not (the goal)`: if your goal is `⊢ p`, typing `by_contra h` creates
+* Proofs by contradiction, introduced using the `by_contra` tactic, require you to prove `False` assuming `not (the goal)`: if your goal is `⊢ P`, typing `by_contra h` creates
 
     | h : ¬ P
       ⊢ False
@@ -138,16 +138,17 @@ Once more,
 
 So far, we
 * met some abstract types `α, β, T : Type`, and variations like `α → T` or `β → Type`;
-* also met a lot of types `p, q, (1 = 2) ∧ (0 ≤ 5) : Prop`;
+* also met a lot of types `P, Q, (1 = 2) ∧ (0 ≤ 5) : Prop`;
 * struggled a bit with `h : (2 = 3)` *versus* `(2 = 3) : Prop`;
 * also met `ℕ`, `ℝ`...
 
-How can we *construct* new types? For instance, `ℝ`, or `True : Prop` or the set of even numbers? Using **inductive types**.
+How can we *construct* new types, or how have these been constructed? For instance, `ℝ`, or `True : Prop` or the set of even numbers? Using **inductive types**.
 
 +++ Perspectives
 
 * *Theoretical*: this is (fun & interesting, but) beyond the scope of this course: it is very much discussed in the references.
 * *Practical*: think of `ℕ` and surf the wave. It has two **constructors**: the constant `0 : ℕ` and the function `succ : ℕ → ℕ`, and every `n : ℕ` is of either form. Moreover, it satisfies **induction**/recursion.
++++
 
 For example
 ```lean
@@ -165,13 +166,7 @@ constructs the "minimal/smallest" type `NiceType` whose terms are
 
 For example, `f (g 37 Tom Tom) : NiceType`.
 
-Every inductive type comes with its *recursor*, that is automatically constructed by Lean: it builds dependent functions by declaring the value that should be assigned to every constructor.
-
-`⌘`
-
-+++
-
-> **Every type in Lean is an inductive type**
+Every inductive type comes with its *recursor*, that is automatically constructed by Lean: it builds dependent functions *out of the inductive type being constructed* by declaring the value that should be assigned to every constructor.
 
 In order to
 1. construct terms of type `NiceType` you can use the ... *constructors*!;
@@ -179,24 +174,33 @@ In order to
 
 `⌘`
 
+> **Every type in Lean is an inductive type**
 
-Having this theoretical framework at our disposal, we can revisit some of the previous constructions **don't list them here, just in the code, at least for the first four**
+By *every* we mean `True`, `False`, `Bool`, `P ∧ Q`... every! And among those,
 
-* `False` is defined as...
-* `True` is defined as...
-* `Bool` is defined as...
-* `ℕ` is defined as ...
-* `∧` is a term of `Prop → Prop → Prop` whose constructors are.../that is defined as...
-* `↔ : Prop → Prop → Prop` represents *equivalences* and is defined as.../its constructors are...
+#### If and only if statements:
+`↔ : Prop → Prop → Prop`: it is an inductive type (of course), with
+* two parameters (`P` and `Q`)
+* one constructor, itself made of
+    * two fields: `Iff.mp : P → Q` and `Iff.mpr : Q → P`
 
-    An equivalence can be either *proved* or *used*.
+```
+structure Iff (a b : Prop) : Prop
+    number of parameters: 2
+    fields:
+        Iff.mp : a → b
+        Iff.mpr : b → a
+    constructor: Iff.intro {a b : Prop} (mp : a → b) (mpr : b → a) : a ↔ b
+```
 
-    * A goal `⊢ P ↔ Q` can broken into the goals `⊢ P → Q` and `⊢ Q → P` using `constructor`.
-    * The projections `(P ↔ Q).1` (or `(P ↔ Q).mp`) and `(P ↔ Q).2` (or `(P ↔ Q).mpr`) are the implications `P → Q` and `Q → P`, respectively.
+An equivalence can be either *proved* or *used*. This amounts to saying that
+
+* A goal `⊢ P ↔ Q` can be broken into the goals `⊢ P → Q` and `⊢ Q → P` using `constructor`: indeed, to prove `⊢ P ↔ Q` amounts to creating *the unique term* of `P ↔ Q` which has two constructors;
+* The projections `(P ↔ Q).1` (or `(P ↔ Q).mp`) and `(P ↔ Q).2` (or `(P ↔ Q).mpr`) are the implications `P → Q` and `Q → P`, respectively. These are the two "components" of the term in `P ↔ Q`.
 
 `⌘`
 
-+++ Structures
+### Structures
 Among inductive types (*i. e.* all types...), some are remarkably useful for formalising mathematical objects: *structures*. Typically, they are used to *bundle* objects and properties together.
 
 As an example, let's see what a Monoid is:
@@ -211,4 +215,4 @@ structure (α : Type*) Monoid where
 
 * We've already encountered some structures: both `∧` and `↔` are structures, whereas... why is
 a structure all constructors of which are `Prop`-valued, itself in `Prop`?
-+++
+
