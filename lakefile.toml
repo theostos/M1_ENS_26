@@ -11,6 +11,7 @@ maxSynthPendingDepth = 3
 linter.style.multiGoal = false
 linter.tacticAnalysis.introMerge = false
 linter.style.lambdaSyntax = false
+linter.hashCommand = false
 
 [[require]]
 name = "mathlib"

@@ -37,10 +37,10 @@ Les cours ont lieu de 13h30 à 16h30 en Salle Bourbaki selon le calendrier suiva
 # Références 
 
 Il n'y a pas (encore) beaucoup de livres qui parlent de `Lean`, mais le très beau
-* [Mathematical Components](https://math-comp.github.io/mcb/), par A. Mahboubi et E. Tassi, bien que conçu pour l'assistant de preuve [`Rocq`](https://rocq-prover.org/), est une excellente présentation à ce qu'est la formalisation mathématique en général.
+* [Mathematical Components](https://math-comp.github.io/mcb/), par A. Mahboubi et E. Tassi, bien que conçu pour l'assistant de preuve [`Rocq`](https://rocq-prover.org/), est une excellente présentation à ce qu'est la formalisation mathématique en général. Le troisième chapitre contient une jolie introduction à la "théorie des types" qu'on utilise.
 
-Pour tout ce qui concerne la "théorie des types" qu'on utilise, une jolie introduction est dans le premier chapitre "Type theory" de
-* [Homotopy Type Theory (a.k.a. "HoTT book")](https://homotopytypetheory.org/book/)
+Un autre résumé de la théorie des types est dans le premier chapitre "Type theory" de
+* [Homotopy Type Theory (a.k.a. "HoTT book")](https://homotopytypetheory.org/book/).
 
 Une source plus complète, très bien écrite et fort agréable à lire est
 * [Lectures on the Curry–Howard Isomorphism](https://www.sciencedirect.com/bookseries/studies-in-logic-and-the-foundations-of-mathematics/vol/149/suppl/C), par M. H. Sørensen et P. Urzyczyn.
