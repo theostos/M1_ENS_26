@@ -169,7 +169,7 @@ example : (Subgroup.center G).Normal := by
   rw [Subgroup.mem_center_iff] at hz --this looses hz
   specialize hz g
   rw [← mul_inv_eq_iff_eq_mul] at hz
-  rw [hz]
+  rwa [hz]
   -- exact Subgroup.instNormalCenter
 
 -- `⌘`
