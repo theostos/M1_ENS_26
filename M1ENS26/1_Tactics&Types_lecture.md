@@ -76,7 +76,7 @@ For both logical connectors, there are two use-cases: we might want to *prove* a
 +++
 
 +++ `by_cases`
-The `by_cases` tactic, **not to be confused with** `cases`, creates two subgoals: one assuming a premise, and the one assuming its negation.
+The `by_cases` tactic, **not to be confused with** `cases`, creates two subgoals: one assuming a premise, and one assuming its negation.
 
 
 `⌘`
