@@ -17,11 +17,11 @@ Chaque cours vient avec un fichier `.md` (exporté en `.pdf` aussi) que vous tro
 Le `commit` de Mathlib sur lequel ce projet a été développé est le [32d2424](https://github.com/leanprover-community/mathlib4/commits/32d24245c7a12ded17325299fd41d412022cd3fe): la documentation correspondante se trouve [ici](https://faenuccio-teaching.github.io/M1_ENS_26/docs/).
 
 # Agenda
-Les cours ont lieu de 13h30 à 16h30 en Salle Bourbaki selon le calendrier suivant:
+Les cours ont lieu le mardi de 15h à 18h et le jeudi de 13h30 à 16h30 en Salle Bourbaki selon le calendrier suivant:
 
 | Date      | Cours         | Fichiers annexes | Notes
 |-----------|---------------|---------------|---------------
-| 3 février | Tactiques et Types | Fichiers [Lean](https://github.com/faenuccio-teaching/M1_ENS_26/blob/master/M1ENS26/1_Tactics%26Types.lean), [MarkDown](https://github.com/faenuccio-teaching/M1_ENS_26/blob/master/M1ENS26/1_Tactics%26Types_lecture.md) et [PDF](https://github.com/faenuccio-teaching/M1_ENS_26/blob/master/M1ENS26/1_Tactics%26Types_lecture.pdf)|
+| 3 février | Tactiques et Types | Fichiers [Lean](https://github.com/faenuccio-teaching/M1_ENS_26/blob/master/M1ENS26/1_Tactics%26Types.lean), [MarkDown](https://github.com/faenuccio-teaching/M1_ENS_26/blob/master/M1ENS26/1_Tactics%26Types_lecture.md) et [PDF](https://github.com/faenuccio-teaching/M1_ENS_26/blob/master/M1ENS26/1_Tactics%26Types_lecture.pdf).| Les [solutions](https://github.com/faenuccio-teaching/M1_ENS_26/blob/master/M1ENS26/1_Tactics%26Types_solutions.lean).
 | 5 février | Types (2) | Fichiers [Lean](https://github.com/faenuccio-teaching/M1_ENS_26/blob/master/M1ENS26/2_MoreTypes.lean) et [MarkDown](https://github.com/faenuccio-teaching/M1_ENS_26/blob/master/M1ENS26/2_MoreTypes_lecture.md)|
 | 10 février | Algèbre | Fichiers [Lean](https://github.com/faenuccio-teaching/M1_ENS_26/blob/master/M1ENS26/3_AlgebraicStructures.lean) et [MarkDown](https://github.com/faenuccio-teaching/M1_ENS_26/blob/master/M1ENS26/3_AlgebraicStructures_lecture.md)|
 | 17 février | Topologie | |
